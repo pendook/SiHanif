@@ -1,0 +1,15 @@
+# Prevent direct access to admin.php from outside localhost
+<Files "admin.php">
+    Order Allow,Deny
+    Allow from 127.0.0.1
+    Allow from ::1
+    Allow from localhost
+</Files>
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Security headers
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
